@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-
 public class LoginTest {
 
     WebDriver driver;
@@ -24,7 +23,7 @@ public class LoginTest {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void validAdminLogin(){
         driver.findElement(By.id("txtUsername")).sendKeys("Admin");
         driver.findElement(By.id("txtPassword")).sendKeys("Hum@nhrm123");
@@ -38,7 +37,7 @@ public class LoginTest {
         }
     }
 
-    @Test
+    @Test(groups = "regression")
     public void titleValidation(){
         String expectedTitle="Human Management System";
         String actualTitle=driver.getTitle();

@@ -19,7 +19,7 @@ public class Assertion {
     public void openBrowser(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         driver=new ChromeDriver();
-        driver.get("http://hrmstest.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
+        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
     }
@@ -46,8 +46,9 @@ public class Assertion {
 //        }else{
 //            System.out.println("Invalid credentials is not displayed. Test failed");
 //        }
-
+        System.out.println("My code before the assertion");
         Assert.assertEquals(error,expectedErrorMessage,"Not correct error message");//validating for text
+        System.out.println("My code after the assertion");
     }
     @AfterMethod
     public void quitBrowser(){

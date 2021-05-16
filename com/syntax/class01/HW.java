@@ -21,12 +21,12 @@ public class HW {
     public void openBrowser(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         driver=new ChromeDriver();
-        driver.get("http://hrmstest.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
+        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
        // driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
     }
-    @Test(priority = 0)
+    @Test(priority = 0,groups = "regression")
     public void isImagePresent(){
         WebElement element=driver.findElement(By.xpath("//*[@id=\"divLogo\"]/img"));
         if (element.isDisplayed()){
@@ -35,7 +35,7 @@ public class HW {
             System.out.println("Image is not present.Test failed.");
         }
     }
-    @Test(priority = 1,enabled = true)
+    @Test(priority = 1,enabled = true,groups = "smoke")
     public void invalidCredentials(){
         driver.findElement(By.id("txtUsername")).sendKeys("Syntaxx");
         driver.findElement(By.id("txtPassword")).sendKeys("000123");
